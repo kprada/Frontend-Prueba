@@ -8,6 +8,7 @@ import { PagesComponent } from './pages.component';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProgressComponent } from './progress/progress.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -17,7 +18,7 @@ import { ProgressComponent } from './progress/progress.component';
         DashboardComponent,
         ProgressComponent,
     ],
-    imports: [ShareModule, 
+    imports: [RouterModule,ShareModule, 
                 PagesRoutes ],
     exports: [
         PagesComponent,

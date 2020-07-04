@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
+declare function init_plugins();//asi puedo llamar un script de js o jq en angular
 
 @Component({
   selector: 'app-pages',
@@ -6,9 +7,11 @@ import { Component } from '@angular/core';
   styles: [
   ]
 })
-export class PagesComponent  {
+export class PagesComponent implements OnInit {
 
   constructor() { }
 
-  
+  ngOnInit(){
+    init_plugins();
+  }
 }
