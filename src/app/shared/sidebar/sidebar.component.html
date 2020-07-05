@@ -15,15 +15,15 @@
                         <li><a href="javascript:void()">Inbox</a></li>
                         <li><a href="javascript:void()">Account Setting</a></li>
                         <li>
-                            <a [routerLink]="['//login']">Logout</a>
+                            <a (click)="logOut()" class="pointer">Logout</a>
                         </li>
                     </ul>
                 </li>
-                <li class="nav-devider"></li>
-                <li *ngFor="let menu of _sidebar.menu">
-                    <a class="has-arrow waves-effect waves-dark" aria-expanded="false"><i [class]="menu.icono"></i><span class="hide-menu">{{menu.titulo}}  <span class="label label-rouded label-themecolor pull-right">{{menu.submenu.length }} </span></span></a>
-                    <ul aria-expanded="false" class="collapse">
-                        <li *ngFor="let submenu of menu.submenu"><a [routerLink]="[submenu.url]" routerLinkActive="active"> {{submenu.titulo}}  </a></li>
+                <li class="nav-devider "></li>
+                <li *ngFor="let menu of _sidebar.menu ">
+                    <a class="has-arrow waves-effect waves-dark " aria-expanded="false "><i [class]="menu.icono "></i><span class="hide-menu ">{{menu.titulo}}  <span class="label label-rouded label-themecolor pull-right ">{{menu.submenu.length }} </span></span></a>
+                    <ul aria-expanded="false " class="collapse ">
+                        <li *ngFor="let submenu of menu.submenu "><a [routerLink]="[submenu.url] " routerLinkActive="active "> {{submenu.titulo}}  </a></li>
 
                     </ul>
                 </li>

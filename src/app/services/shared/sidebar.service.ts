@@ -10,7 +10,7 @@ menu: any=[
     icono: 'mdi mdi-gauge',
 
     submenu:[
-     {titulo: 'Listar Usuarios', url: '/dashboard' },
+     {titulo: 'Listar Usuarios', url: '/listarUsuarios' },
      {titulo: 'Crear Usuarios', url: '/progress' },
 
     
