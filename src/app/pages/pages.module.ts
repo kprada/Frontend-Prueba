@@ -10,6 +10,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProgressComponent } from './progress/progress.component';
 import { RouterModule } from '@angular/router';
 import { ListUsersComponent } from './list-users/list-users.component';
+import { PipesModule } from '../pipes/pipes.module';
+import { ProfileComponent } from './profile/profile.component';
+import { FormsModule } from '@angular/forms';
+
+
 
 
 
@@ -19,9 +24,11 @@ import { ListUsersComponent } from './list-users/list-users.component';
         DashboardComponent,
         ProgressComponent,
         ListUsersComponent,
+        ProfileComponent,
     ],
     imports: [RouterModule,ShareModule, 
-                PagesRoutes ],
+                PagesRoutes, PipesModule,FormsModule,
+                 ],
     exports: [
         PagesComponent,
         DashboardComponent,

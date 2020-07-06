@@ -1,0 +1,115 @@
+<div class="row">
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Perfil Usuario</h4>
+                <h6 class="card-subtitle">Use Bootstrap's predefined grid classes for horizontal form</h6>
+                <form ngNativeValite #f="ngForm" (ngSubmit)="actualizar(f.value)" class="form-horizontal p-t-20 ">
+                    <div class="form-group row ">
+                        <label for="exampleInputuname3 " class="col-sm-3 control-label ">Nombres*</label>
+                        <div class="col-sm-9 ">
+                            <div class="input-group ">
+                                <div class="input-group-addon "><i class="ti-user "></i></div>
+                                <input [ngModel]="usuario.nombre" name="nombre" type="text " class="form-control " placeholder="Username ">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row ">
+                        <label for="exampleInputuname3 " class="col-sm-3 control-label ">Apellidos*</label>
+                        <div class="col-sm-9 ">
+                            <div class="input-group ">
+                                <div class="input-group-addon "><i class="ti-user "></i></div>
+                                <input [ngModel]="usuario.apellido" name="apellido" type="text " class="form-control " placeholder="Username ">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row ">
+                        <label for="exampleInputEmail3 " class="col-sm-3 control-label ">Email*</label>
+                        <div class="col-sm-9 ">
+                            <div class="input-group ">
+                                <div class="input-group-addon "><i class="ti-email "></i></div>
+                                <input [ngModel]="usuario.email" name="email" type="email" class="form-control " disabled placeholder="Enter email ">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="form-group row ">
+                        <label for="inputPassword4 " class="col-sm-3 control-label ">Password*</label>
+                        <div class="col-sm-9 ">
+                            <div class="input-group ">
+                                <div class="input-group-addon "><i class="ti-lock "></i></div>
+                                <input name="password" type="password " class="form-control " placeholder="Cambiar contraseña">
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="form-group row ">
+                        <label for="exampleInputuname3 " class="col-sm-3 control-label ">Nacimiento*</label>
+                        <div class="col-sm-9 ">
+                            <div class="input-group ">
+                                <div class="input-group-addon "><i class="ti-user "></i></div>
+                                <input [ngModel]="usuario.fecha_nacimiento" name="fecha_nacimiento" type="text " class="form-control " placeholder="DD/MM/AAAA ">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row ">
+                        <label for="exampleInputuname3 " class="col-sm-3 control-label ">Pais*</label>
+                        <div class="col-sm-9 ">
+                            <div class="input-group ">
+                                <div class="input-group-addon "><i class="ti-user "></i></div>
+                                <input [ngModel]="usuario.pais" name="pais" type="text " class="form-control " placeholder="Digite pais ">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row ">
+                        <label for="exampleInputuname3 " class="col-sm-3 control-label ">Ciudad*</label>
+                        <div class="col-sm-9 ">
+                            <div class="input-group ">
+                                <div class="input-group-addon "><i class="ti-user "></i></div>
+                                <input [ngModel]="usuario.ciudad" name="ciudad" type="text " class="form-control " placeholder="Digite ciudad ">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="form-group row ">
+                        <label for="inputPassword4 " class="col-sm-3 control-label ">Password*</label>
+                        <div class="col-sm-9 ">
+                            <div class="input-group ">
+                                <div class="input-group-addon "><i class="ti-lock "></i></div>
+                                <input type="password " class="form-control " id="exampleInputpwd4 " placeholder="Enter pwd ">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row ">
+                        <label for="inputPassword5 " class="col-sm-3 control-label ">Re Password*</label>
+                        <div class="col-sm-9 ">
+                            <div class="input-group ">
+                                <div class="input-group-addon "><i class="ti-lock "></i></div>
+                                <input type="password " class="form-control " id="exampleInputpwd5 " placeholder="Re Enter pwd ">
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <div class="form-group row m-b-0 ">
+                        <div class="offset-sm-3 col-sm-9 ">
+                            <button type="submit " class="btn btn-success waves-effect waves-light ">Guardar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="col-lg-6 ">
+        <div class="card ">
+            <div class="card-body">
+                <h4 class="card-title text-center ">Imagen de perfil</h4>
+                <div class="text-center">
+                    <img [src]="usuario.avatar|imagen" class="w150">
+                </div><br><br>
+                <input type="file" id="file" (change)="seleccionImage($event.target.files[0])"><br>
+                <br> <button (click)="cambiarImagen()" [disabled]="!imagenSubir" type="button" class="btn btn-block btn-success waves-effect waves-light m-r10 ">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>

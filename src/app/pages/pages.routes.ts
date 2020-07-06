@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProgressComponent } from './progress/progress.component';
 import { ListUsersComponent } from './list-users/list-users.component';
 import { LoginGuardGuard } from '../services/service.index';
+import { ProfileComponent } from './profile/profile.component';
 
 
 const pagesRoutes: Routes = [
@@ -15,6 +16,7 @@ const pagesRoutes: Routes = [
      children:[
    
      { path: 'dashboard', component: DashboardComponent },
+     { path: 'profile', component: ProfileComponent },
      { path: 'listarUsuarios', component: ListUsersComponent },
      { path: 'progress', component: ProgressComponent },
      { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
