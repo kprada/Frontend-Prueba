@@ -6,17 +6,17 @@ import { Injectable } from '@angular/core';
 export class SidebarService {
 menu: any=[
   {
-    titulo: 'Administracion',
-    icono: 'mdi mdi-gauge',
+    titulo: 'Mantenimientos ',
+    icono: 'mdi mdi-folder-lock-open',
 
     submenu:[
-     {titulo: 'Listar Usuarios', url: '/listarUsuarios' },
-     {titulo: 'Crear Usuarios', url: '/progress' },
+     {titulo: 'Usuarios', url: '/listarUsuarios' },
 
-    
+  
     ]
 
   },
-]
+
+];
   constructor() { }
 }

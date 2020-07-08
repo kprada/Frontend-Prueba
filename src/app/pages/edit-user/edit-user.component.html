@@ -1,0 +1,115 @@
+<div class="modal-header modal-lg">
+    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form #form="ngForm" (ngSubmit)="ActualizarUsuario(form.value)">
+
+        <div class="form-group row ">
+            <label class="col-sm-3 control-label ">Nombres*</label>
+            <div class="col-sm-9 ">
+                <div class="input-group ">
+                    <div class="input-group-addon "><i class="ti-user "></i></div>
+                    <input [ngModel]="usuario.nombre" name="nombre" type="text " class="form-control " placeholder="Username ">
+                </div>
+            </div>
+        </div>
+        <div class="form-group row ">
+            <label class="col-sm-3 control-label ">Apellidos*</label>
+            <div class="col-sm-9 ">
+                <div class="input-group ">
+                    <div class="input-group-addon "><i class="ti-user "></i></div>
+                    <input [ngModel]="usuario.apellido" name="apellido" type="text " class="form-control " placeholder="Username ">
+                </div>
+            </div>
+        </div>
+        <div class="form-group row ">
+            <label class="col-sm-3 control-label ">Email*</label>
+            <div class="col-sm-9 ">
+                <div class="input-group ">
+                    <div class="input-group-addon "><i class="ti-email "></i></div>
+                    <input [ngModel]="usuario.email" name="email" type="email" class="form-control " disabled placeholder="Enter email ">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row ">
+            <label class="col-sm-3 control-label ">Nacimiento*</label>
+            <div class="col-sm-9 ">
+                <div class="input-group ">
+                    <div class="input-group-addon "><i class="ti-user "></i></div>
+                    <input [ngModel]="usuario.fecha_nacimiento" name="fecha_nacimiento" type="text " class="form-control " placeholder="DD/MM/AAAA ">
+                </div>
+            </div>
+        </div>
+        <div class="form-group row ">
+            <label class="col-sm-3 control-label ">Pais*</label>
+            <div class="col-sm-9 ">
+                <div class="input-group ">
+                    <div class="input-group-addon "><i class="ti-user "></i></div>
+                    <input [ngModel]="usuario.pais" name="pais" type="text " class="form-control " placeholder="Digite pais ">
+                </div>
+            </div>
+        </div>
+        <div class="form-group row ">
+            <label class="col-sm-3 control-label ">Ciudad*</label>
+            <div class="col-sm-9 ">
+                <div class="input-group ">
+                    <div class="input-group-addon "><i class="ti-user "></i></div>
+                    <input [ngModel]="usuario.ciudad" name="ciudad" type="text " class="form-control " placeholder="Digite ciudad ">
+                </div>
+            </div>
+        </div>
+        <div class="form-group row ">
+            <label class="col-sm-3 control-label ">Tipo de Usuario*</label>
+            <div class="col-sm-9 ">
+                <select name="tipo_usuario" class="form-control">
+                    <option value="ADMIN_USER">ADMIN_USER</option>
+                    <option value="USER_CLIENT">USER_CLIENT</option>
+                </select>
+            </div>
+        </div>
+
+
+        <div class="form-group row ">
+            <label class="col-sm-3 control-label ">Password*</label>
+            <div class="col-sm-9 ">
+                <div class="input-group ">
+                    <div class="input-group-addon "><i class="ti-lock "></i></div>
+                    <input type="password " class="form-control " placeholder="Enter pwd ">
+                </div>
+            </div>
+        </div>
+        <div class="form-group row ">
+            <label class="col-sm-3 control-label ">Re Password*</label>
+            <div class="col-sm-9 ">
+                <div class="input-group ">
+                    <div class="input-group-addon "><i class="ti-lock "></i></div>
+                    <input type="password " class="form-control " placeholder="Re Enter pwd ">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row m-b-0 ">
+            <div class="offset-sm-3 col-sm-9 ">
+                <button type="submit " class="btn btn-success waves-effect waves-light ">Guardar</button>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+</div>

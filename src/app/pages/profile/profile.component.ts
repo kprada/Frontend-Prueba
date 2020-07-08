@@ -32,17 +32,18 @@ usuario: Usuario;
       
       this.usuario.nombre=usuario.nombre;
       this.usuario.apellido=usuario.apellido;
-      this.usuario.email=usuario.email;
+      this.usuario.email=this.usuario.email;
       this.usuario.password=usuario.password;
       this.usuario.fecha_nacimiento=usuario.fecha_nacimiento;
       this.usuario.pais=usuario.pais;
-      this.usuario.ciudad=usuario.ciudad;
+      this.usuario.ciudad=usuario.ciudad; 
       
       
-      this.usuarioService.actualizar(usuario).subscribe(res=>{
+      this.usuarioService.actualizarPerfil(usuario).subscribe(res=>{
         console.log(res);
         
       });
+
       
       
       
@@ -63,6 +64,7 @@ usuario: Usuario;
         console.log('presionado');
         
   this.usuarioService.cambiarImagen(this.imagenSubir, this.usuario._id);
+  this.usuarioService.saveStorage(this.usuario._id,this.usuarioService.token,this.usuario);
 }
 
       

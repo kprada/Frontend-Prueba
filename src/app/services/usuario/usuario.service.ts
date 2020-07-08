@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
 })
 export class UsuarioService {
   public url: string;
-
 usuario: Usuario;
 token: string;
   constructor(public http: HttpClient,
@@ -81,9 +80,7 @@ return this.http.post(url, usuario).pipe(map((res:any)=>{
 return res.usuario;
 }));
   }
-
-
-  actualizar(usuario:Usuario){
+  actualizarPerfil(usuario:Usuario){
    
     let url =URL_SERVICIOS+'Apirest/usuario/'+ this.usuario._id;
     const headers = new HttpHeaders({
@@ -95,6 +92,27 @@ return res.usuario;
 
       let usuarioDB:Usuario =res.usuario;
       this.saveStorage(usuarioDB._id,this.token,usuarioDB);
+      this.loadStorage();
+
+      Swal.fire({
+        title:'Actualizacion exitosa',
+        icon:'success'
+      });
+
+      return true;
+    }));
+  }/////end perfil
+
+  actualizarUsuarios(usuario:Usuario){
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.token}`
+      });
+    let url = `${URL_SERVICIOS}apirest/usuario/${usuario._id}`;
+   
+
+      
+    return this.http.put(url, usuario, {headers}).pipe(map((res:any)=>{
+
       Swal.fire({
         title:'Actualizacion exitosa',
         icon:'success'
@@ -103,6 +121,8 @@ return res.usuario;
       return true;
     }));
   }
+
+  
 
 
   cambiarImagen(file: File, id: string){
@@ -120,6 +140,7 @@ this.usuario.avatar=res.usuario.avatar;
 console.log(res);
 
 });
+
   }
 
 
@@ -141,12 +162,14 @@ console.log(res);
             console.log('imagen subida');
     
             resolve(JSON.parse(xhr.response));
+            
           }else{
             console.log(' no se cargo la imagen');
             reject(xhr.response);
           }
         }
       };
+
       let url = `${URL_SERVICIOS}apirest/img/${id}`;
       xhr.open('PUT',url,true);
       xhr.setRequestHeader('Authorization',`Bearer ${this.token}`);
@@ -154,10 +177,38 @@ console.log(res);
     
     });
     
-    }
+    }//ende subir archivo
     
+    cargarUsuarios(desde:number=0){
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${this.token}`
+        });
+      let url = `${URL_SERVICIOS}apirest/usuarios?desde=${desde}`;
+      return this.http.get(url,{headers});
+    }//end cargarusuario
 
 
+    borrarUsuario(id:string){
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${this.token}`
+        });
+      let url = `${URL_SERVICIOS}apirest/usuario/${id}`;
+
+      return this.http.delete(url,{headers}).pipe(map(res=>{
+        Swal.fire(
+          'Eliminado!',
+          'El Usuario ha sido Eliminado.',
+          'success'
+        );
+        return true;
+
+        
+      }));
+    }
+
+
+
+   
  
   }
 
