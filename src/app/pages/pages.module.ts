@@ -11,10 +11,12 @@ import { RouterModule } from '@angular/router';
 import { ListUsersComponent } from './list-users/list-users.component';
 import { PipesModule } from '../pipes/pipes.module';
 import { ProfileComponent } from './profile/profile.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { EditPhotoComponent } from './edit-user/edit-photo.component';
+import { CreateUserComponent } from './create-user/create-user.component';
 
 
 
@@ -30,10 +32,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
         ListUsersComponent,
         ProfileComponent,
         EditUserComponent,
+        EditPhotoComponent,
+        CreateUserComponent,
         
     ],
     imports: [BrowserModule,RouterModule,ShareModule, 
-                PagesRoutes, PipesModule,FormsModule,NgbModule],
+                PagesRoutes, PipesModule,FormsModule,NgbModule,ReactiveFormsModule],
     exports: [
         PagesComponent,
         DashboardComponent,

@@ -5,6 +5,7 @@ import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ListUsersComponent } from './list-users/list-users.component';
 import { LoginGuardGuard } from '../services/service.index';
+import { AdminGuardGuard } from '../services/guards/admin-guard.guard';
 import { ProfileComponent } from './profile/profile.component';
 
 
@@ -19,11 +20,18 @@ const pagesRoutes: Routes = [
 
 
      //MANTENIMIENTOS
-     { path: 'listarUsuarios', component: ListUsersComponent, data:{titulo:'Mantenimiento usuarios'} },
+     {
+          path: 'listarUsuarios', 
+          component: ListUsersComponent, 
+          canActivate:[AdminGuardGuard],
+          data:{titulo:'Mantenimiento usuarios'} 
+        },
+
      { path: 'profile', component: ProfileComponent },
 
      { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-   
+     { path: '**', redirectTo: '/dashboard', pathMatch: 'full' },
+
    
    
    ]

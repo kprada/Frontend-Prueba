@@ -3,6 +3,7 @@ import { Usuario } from '../../models/usuario.models';
 import { UsuarioService } from '../../services/service.index';
 import { NgForm } from '@angular/forms';
 import { URL_SERVICIOS } from '../../config/config';
+import  Swal from 'sweetalert2';
 
 
 @Component({
@@ -14,13 +15,14 @@ import { URL_SERVICIOS } from '../../config/config';
 export class ProfileComponent implements OnInit {
 
   imagenSubir:File;
+  imagenTemporal: string | ArrayBuffer; 
   public url :string;
-usuario: Usuario;
+  usuario: Usuario;
 
   constructor(public usuarioService: UsuarioService) {
 
     this.url=URL_SERVICIOS;
-   }
+   } 
 
   ngOnInit(): void {
     this.usuario = this.usuarioService.usuario;
@@ -57,15 +59,30 @@ usuario: Usuario;
 
           this.imagenSubir=null;
           return;
+        }console.log(archivo);
+        if(archivo.type.indexOf('image')<0){
+          Swal.fire({
+            
+            icon: 'error',
+            title: 'El aricho seleccionado no es una imagen',
+            showConfirmButton: false,
+            timer: 1500
+          }),
+          this.imagenSubir=null;
+          return;
         }
+
         this.imagenSubir=archivo;
+        let reader= new FileReader();
+        let urlImagenTemporal= reader.readAsDataURL(archivo);
+        reader.onloadend= () => this.imagenTemporal=reader.result;
+        
       }
       cambiarImagen(){
         console.log('presionado');
         
   this.usuarioService.cambiarImagen(this.imagenSubir, this.usuario._id);
-  this.usuarioService.saveStorage(this.usuario._id,this.usuarioService.token,this.usuario);
-}
+ }
 
       
 

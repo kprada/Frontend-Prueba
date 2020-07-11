@@ -3,7 +3,7 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Perfil Usuario</h4>
-                <h6 class="card-subtitle">Use Bootstrap's predefined grid classes for horizontal form</h6>
+                <h6 class="card-subtitle">Aqui puede editar toda su informacion personal</h6>
                 <form ngNativeValite #f="ngForm" (ngSubmit)="actualizar(f.value)" class="form-horizontal p-t-20 ">
                     <div class="form-group row ">
                         <label for="exampleInputuname3 " class="col-sm-3 control-label ">Nombres*</label>
@@ -45,7 +45,7 @@
                         <label for="exampleInputuname3 " class="col-sm-3 control-label ">Nacimiento*</label>
                         <div class="col-sm-9 ">
                             <div class="input-group ">
-                                <div class="input-group-addon "><i class="ti-user "></i></div>
+                                <div class="input-group-addon "><i class="ti-gift "></i></div>
                                 <input [ngModel]="usuario.fecha_nacimiento" name="fecha_nacimiento" type="text " class="form-control " placeholder="DD/MM/AAAA ">
                             </div>
                         </div>
@@ -54,7 +54,7 @@
                         <label for="exampleInputuname3 " class="col-sm-3 control-label ">Pais*</label>
                         <div class="col-sm-9 ">
                             <div class="input-group ">
-                                <div class="input-group-addon "><i class="ti-user "></i></div>
+                                <div class="input-group-addon "><i class="ti-location-pin "></i></div>
                                 <input [ngModel]="usuario.pais" name="pais" type="text " class="form-control " placeholder="Digite pais ">
                             </div>
                         </div>
@@ -63,7 +63,7 @@
                         <label for="exampleInputuname3 " class="col-sm-3 control-label ">Ciudad*</label>
                         <div class="col-sm-9 ">
                             <div class="input-group ">
-                                <div class="input-group-addon "><i class="ti-user "></i></div>
+                                <div class="input-group-addon "><i class="ti-location-pin "></i></div>
                                 <input [ngModel]="usuario.ciudad" name="ciudad" type="text " class="form-control " placeholder="Digite ciudad ">
                             </div>
                         </div>
@@ -89,8 +89,8 @@
                     </div> -->
 
                     <div class="form-group row m-b-0 ">
-                        <div class="offset-sm-3 col-sm-9 ">
-                            <button type="submit " class="btn btn-success waves-effect waves-light ">Guardar</button>
+                        <div class="offset-sm-3 col-sm-12 ">
+                            <button type="submit " class="btn btn-block btn-success waves-effect waves-light m-r10 "> <i class="ti-save"></i> Guardar</button>
                         </div>
                     </div>
                 </form>
@@ -105,7 +105,9 @@
             <div class="card-body">
                 <h4 class="card-title text-center ">Imagen de perfil</h4>
                 <div class="text-center">
-                    <img [src]="usuario.avatar|imagen" class="w150">
+                    <img *ngIf="!imagenTemporal" [src]="usuario.avatar|imagen" class="w150 img-circle">
+                    <img *ngIf="imagenTemporal" [src]="imagenTemporal" class="w150 img-circle">
+
                 </div><br><br>
                 <input type="file" id="file" (change)="seleccionImage($event.target.files[0])"><br>
                 <br> <button (click)="cambiarImagen()" [disabled]="!imagenSubir" type="button" class="btn btn-block btn-success waves-effect waves-light m-r10 ">Guardar</button>
